@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Criar conta — Obrix</title>
+  <link rel="stylesheet" href="css/obrix.css">
+  <style>
+    .coluna { max-width: 620px; }
+    .seletor-perfil { display: grid; gap: var(--e2); margin-bottom: var(--e4); }
+    @media (min-width: 560px) { .seletor-perfil { grid-template-columns: 1fr 1fr; } }
+    .seletor-perfil button {
+      text-align: left; background: var(--superficie); border: 1px solid var(--linha-forte);
+      border-radius: var(--raio); padding: var(--e3) var(--e4); cursor: pointer;
+      font-family: inherit; color: var(--texto);
+    }
+    .seletor-perfil button[aria-pressed="true"] {
+      border-color: var(--verde); background: var(--verde-claro);
+    }
+    .seletor-perfil strong { display: block; font-size: 15.5px; }
+    .seletor-perfil span { font-size: 13.5px; color: var(--texto-2); }
+  </style>
+</head>
+<body>
+<header data-topo></header>
+<main class="container painel">
+  <div class="coluna">
+    <h1 class="painel-titulo">Criar conta</h1>
+    <p class="painel-apoio">Escolha como voce vai usar o Obrix.</p>
+
+    <div class="seletor-perfil" id="seletor-perfil">
+      <button type="button" data-perfil="cliente" aria-pressed="true">
+        <strong>Sou cliente</strong>
+        <span>Quero contratar um servico</span>
+      </button>
+      <button type="button" data-perfil="prestador" aria-pressed="false">
+        <strong>Sou profissional</strong>
+        <span>Quero receber solicitacoes</span>
+      </button>
+    </div>
+
+    <form class="cartao" id="form-conta" novalidate>
+      <div class="campo">
+        <label for="nome">Nome completo</label>
+        <input type="text" id="nome" name="nome" required autocomplete="name">
+      </div>
+      <div class="linha-campos duas">
+        <div class="campo">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" required autocomplete="email">
+        </div>
+        <div class="campo">
+          <label for="telefone">Telefone</label>
+          <input type="text" id="telefone" name="telefone" required placeholder="(62) 90000-0000">
+        </div>
+      </div>
+      <div class="campo">
+        <label for="senha">Senha</label>
+        <input type="password" id="senha" name="senha" required autocomplete="new-password">
+        <span class="ajuda">Minimo de 8 caracteres, com letras e numeros.</span>
+      </div>
+
+      <!-- Bloco exclusivo do cliente -->
+      <div data-bloco="cliente">
+        <fieldset>
+          <legend>Endereco</legend>
+          <div class="linha-campos duas">
+            <div class="campo">
+              <label for="cep">CEP</label>
+              <input type="text" id="cep" name="cep" placeholder="00000-000">
+            </div>
+            <div class="campo">
+              <label for="numero">Numero</label>
+              <input type="text" id="numero" name="numero">
+            </div>
+          </div>
+          <div class="campo">
+            <label for="logradouro">Rua</label>
+            <input type="text" id="logradouro" name="logradouro">
+          </div>
+          <div class="linha-campos duas">
+            <div class="campo">
+              <label for="cidade">Cidade</label>
+              <input type="text" id="cidade" name="cidade" value="Goiania">
+            </div>
+            <div class="campo">
+              <label for="bairro">Bairro</label>
+              <input type="text" id="bairro" name="bairro">
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      <!-- Bloco exclusivo do profissional -->
+      <div data-bloco="prestador" hidden>
+        <div class="campo">
+          <label for="cpf">CPF</label>
+          <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00">
+          <span class="ajuda">O CPF e pedido somente ao profissional, por ser quem recebe a cobranca de comissao.</span>
+        </div>
+        <div class="campo">
+          <label for="descricaoProfissional">Descricao profissional</label>
+          <textarea id="descricaoProfissional" name="descricaoProfissional" maxlength="500"
+            placeholder="Conte sua experiencia e o tipo de servico que voce faz."></textarea>
+        </div>
+        <fieldset>
+          <legend>Categorias de atuacao</legend>
+          <div class="caixa-selecao" id="categorias"></div>
+          <span class="ajuda">Selecione ao menos uma.</span>
+        </fieldset>
+        <fieldset style="margin-top:16px">
+          <legend>Regioes de atuacao</legend>
+          <div class="caixa-selecao" id="regioes"></div>
+          <span class="ajuda">Selecione ao menos uma.</span>
+        </fieldset>
+      </div>
+
+      <div class="campo" style="margin-top:16px">
+        <label class="visualmente-oculto" for="aceite">Termos</label>
+        <div class="caixa-selecao">
+          <label><input type="checkbox" id="aceite" name="aceiteTermos" value="true">
+            Li e aceito os termos de uso e a politica de privacidade</label>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primario btn-bloco">Criar conta</button>
+    </form>
+  </div>
+</main>
+
+<footer class="rodape">
+  <div class="container rodape-interno">
+    <span>Termos de uso</span><span class="direita">Obrix &middot; 2026</span>
+  </div>
+</footer>
+
+<script src="js/demo.js"></script>
+<script src="js/api.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/pagina-criar-conta.js"></script>
+</body>
+</html>

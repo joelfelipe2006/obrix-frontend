@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Minha conta — Obrix</title>
+  <link rel="stylesheet" href="css/obrix.css">
+  <style>
+    .colunas { display: grid; gap: var(--e4); }
+    @media (min-width: 900px) { .colunas { grid-template-columns: 1fr 1fr; align-items: start; } }
+    .privacidade .btn { width: 100%; margin-top: var(--e2); }
+    .privacidade .explica { font-size: 13px; color: var(--texto-3); margin-top: 4px; }
+  </style>
+</head>
+<body>
+<header data-topo></header>
+<main class="container painel">
+  <h1 class="painel-titulo">Minha conta</h1>
+  <p class="painel-apoio">Seus dados cadastrais e o que voce pode fazer com eles.</p>
+
+  <div class="colunas">
+    <form class="cartao" id="form-conta" novalidate>
+      <h2>Dados cadastrais</h2>
+      <div class="campo" style="margin-top:14px">
+        <label for="nome">Nome completo</label>
+        <input type="text" id="nome" name="nome" required>
+      </div>
+      <div class="campo">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" readonly>
+        <span class="ajuda" id="estado-email"></span>
+      </div>
+      <div class="linha-campos duas">
+        <div class="campo">
+          <label for="telefone">Telefone</label>
+          <input type="text" id="telefone" name="telefone" required>
+        </div>
+        <div class="campo" data-bloco="prestador" hidden>
+          <label for="cpf">CPF</label>
+          <input type="text" id="cpf" name="cpf" readonly>
+          <span class="ajuda">O CPF nao pode ser alterado pelo usuario.</span>
+        </div>
+      </div>
+
+      <div data-bloco="prestador" hidden>
+        <div class="campo">
+          <label for="descricaoProfissional">Descricao profissional</label>
+          <textarea id="descricaoProfissional" name="descricaoProfissional" maxlength="500"></textarea>
+        </div>
+        <fieldset>
+          <legend>Categorias de atuacao</legend>
+          <div class="caixa-selecao" id="categorias"></div>
+        </fieldset>
+        <fieldset style="margin-top:16px">
+          <legend>Regioes de atuacao</legend>
+          <div class="caixa-selecao" id="regioes"></div>
+        </fieldset>
+        <span class="ajuda">Mantenha ao menos uma categoria e uma regiao ativas.</span>
+      </div>
+
+      <button type="submit" class="btn btn-primario" style="margin-top:16px">Salvar alteracoes</button>
+    </form>
+
+    <section class="cartao privacidade">
+      <h2>Privacidade e dados pessoais</h2>
+      <p class="painel-apoio" style="margin-top:8px">
+        Termos de uso e politica de privacidade aceitos: versao <span id="versao-termos">1.0</span>.
+      </p>
+
+      <button type="button" class="btn btn-secundario" id="exportar">Exportar meus dados</button>
+      <p class="explica">Arquivo estruturado com os seus dados pessoais.</p>
+
+      <button type="button" class="btn btn-secundario" id="desativar">Desativar conta</button>
+      <p class="explica">Seu perfil sai das buscas, mas voce continua podendo entrar.</p>
+
+      <button type="button" class="btn btn-perigo" id="excluir">Excluir minha conta</button>
+      <p class="explica">Os dados pessoais sao anonimizados em ate 30 dias.
+        O historico dos servicos permanece, sem identificar voce.</p>
+    </section>
+  </div>
+</main>
+
+<footer class="rodape">
+  <div class="container rodape-interno">
+    <span>Termos de uso</span><span class="direita">Obrix &middot; 2026</span>
+  </div>
+</footer>
+
+<script src="js/demo.js"></script>
+<script src="js/api.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/pagina-minha-conta.js"></script>
+</body>
+</html>

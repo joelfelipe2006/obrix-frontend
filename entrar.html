@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Entrar — Obrix</title>
+  <link rel="stylesheet" href="css/obrix.css">
+  <style>
+    .caixa-acesso { max-width: 440px; margin: 0 auto; }
+    .caixa-acesso h1 { margin-bottom: var(--e1); }
+    .alternativa { text-align: center; margin-top: var(--e4); color: var(--texto-2); font-size: 14.5px; }
+    .contas-demo { margin-top: var(--e4); }
+    .contas-demo button { width: 100%; justify-content: flex-start; margin-top: var(--e2); }
+  </style>
+</head>
+<body>
+<header data-topo></header>
+<main class="container painel">
+  <div class="caixa-acesso">
+    <h1 class="painel-titulo">Entrar</h1>
+    <p class="painel-apoio">Acesse para solicitar servicos e acompanhar os seus pedidos.</p>
+
+    <form class="cartao" id="form-entrar" novalidate>
+      <div class="campo">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" autocomplete="email" required>
+      </div>
+      <div class="campo">
+        <label for="senha">Senha</label>
+        <input type="password" id="senha" name="senha" autocomplete="current-password" required>
+      </div>
+      <button type="submit" class="btn btn-primario btn-bloco">Entrar</button>
+      <p class="alternativa">Ainda nao tem conta? <a href="criar-conta.html">Criar conta</a></p>
+    </form>
+
+    <div class="contas-demo" id="contas-demo" hidden>
+      <p class="painel-apoio">Contas de demonstracao:</p>
+      <button type="button" class="btn btn-secundario btn-pequeno" data-entrar="ana@exemplo.com">
+        Entrar como Ana (cliente)
+      </button>
+      <button type="button" class="btn btn-secundario btn-pequeno" data-entrar="carlos@exemplo.com">
+        Entrar como Carlos (profissional)
+      </button>
+    </div>
+  </div>
+</main>
+<footer class="rodape">
+  <div class="container rodape-interno">
+    <span>Termos de uso</span>
+    <span>Politica de privacidade</span>
+    <span class="direita">Obrix &middot; 2026</span>
+  </div>
+</footer>
+
+<script src="js/demo.js"></script>
+<script src="js/api.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/pagina-entrar.js"></script>
+</body>
+</html>

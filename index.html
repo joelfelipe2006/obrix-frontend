@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Obrix — Encontre um profissional de confianca perto de voce</title>
+  <meta name="description" content="Plataforma de contratacao de servicos residenciais. O profissional so paga comissao quando o cliente confirma a conclusao do servico.">
+  <link rel="stylesheet" href="css/obrix.css">
+  <style>
+    .heroi {
+      background: var(--navy); color: #fff;
+      padding-block: var(--e8) var(--e7); position: relative; overflow: hidden;
+    }
+    .heroi::after {
+      content: ""; position: absolute; right: -90px; top: -60px;
+      width: 420px; height: 420px; border-radius: 50%;
+      background: rgba(255, 255, 255, .045);
+    }
+    .heroi .container { position: relative; z-index: 1; }
+    .heroi-selo {
+      display: inline-block; background: var(--verde); color: #fff;
+      font-size: 13.5px; font-weight: 600; padding: 7px 16px;
+      border-radius: var(--raio-pill); margin-bottom: var(--e4);
+    }
+    .heroi h1 { font-size: clamp(30px, 5.4vw, 46px); max-width: 16ch; line-height: 1.08; }
+    .heroi-apoio { color: #c6d0e2; margin-top: var(--e3); font-size: 17px; max-width: 54ch; }
+
+    .busca {
+      background: var(--superficie); border-radius: var(--raio);
+      padding: var(--e4); margin-top: var(--e5); box-shadow: var(--sombra-forte);
+      display: grid; gap: var(--e3);
+    }
+    @media (min-width: 880px) {
+      .busca { grid-template-columns: 1fr 1fr 1fr auto; align-items: end; }
+      .busca .campo { margin-bottom: 0; }
+    }
+    .heroi-nota {
+      display: flex; align-items: center; gap: var(--e2);
+      color: #c6d0e2; font-size: 14.5px; margin-top: var(--e4);
+    }
+    .heroi-nota .marca-icone { width: 22px; height: 22px; border-radius: 6px; }
+    .heroi-nota .marca-icone svg { width: 13px; height: 13px; }
+
+    .passos { display: grid; gap: var(--e3); margin-top: var(--e4); }
+    @media (min-width: 760px) { .passos { grid-template-columns: repeat(3, 1fr); } }
+    .passo .numero {
+      width: 32px; height: 32px; border-radius: 50%; background: var(--verde-claro);
+      color: var(--verde-escuro); display: grid; place-items: center;
+      font-weight: 700; margin-bottom: var(--e3);
+    }
+    .passo h3 { margin-bottom: 6px; }
+    .passo p { color: var(--texto-2); font-size: 15px; }
+
+    .destaque-regra {
+      display: flex; gap: var(--e3); align-items: center; flex-wrap: wrap;
+      background: var(--verde-claro); border-radius: var(--raio);
+      padding: var(--e4); margin-top: var(--e4);
+    }
+    .destaque-regra .texto { flex: 1 1 320px; }
+    .destaque-regra h3 { color: var(--verde-escuro); }
+    .destaque-regra p { color: #1c4f4c; font-size: 15px; margin-top: 4px; }
+  </style>
+</head>
+<body>
+
+<header data-topo></header>
+
+<main>
+  <section class="heroi">
+    <div class="container">
+      <span class="heroi-selo">Servicos residenciais com seguranca</span>
+      <h1>Encontre um profissional de confianca perto de voce</h1>
+      <p class="heroi-apoio">Eletricista, encanador, pintor, diarista e jardineiro — por categoria e regiao.</p>
+
+      <form class="busca" id="form-busca" novalidate>
+        <div class="campo">
+          <label for="categoria">Categoria</label>
+          <select id="categoria" name="categoriaId" required>
+            <option value="">Selecione uma categoria</option>
+          </select>
+        </div>
+        <div class="campo">
+          <label for="cidade">Cidade</label>
+          <select id="cidade" name="cidade">
+            <option value="">Todas as cidades</option>
+          </select>
+        </div>
+        <div class="campo">
+          <label for="regiao">Bairro</label>
+          <select id="regiao" name="regiaoId">
+            <option value="">Todos os bairros</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primario">Buscar profissionais</button>
+      </form>
+
+      <p class="heroi-nota">
+        <span class="marca-icone" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2"
+               stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5.5 5.5L20 7"/></svg>
+        </span>
+        Buscar, ver perfis e solicitar nao custa nada — voce nao precisa de conta para buscar.
+      </p>
+    </div>
+  </section>
+
+  <section class="container painel" id="como-funciona">
+    <h2 class="painel-titulo">Como funciona</h2>
+    <p class="painel-apoio">Tres passos — e a cobranca so acontece depois do ultimo.</p>
+
+    <div class="passos">
+      <article class="cartao passo">
+        <div class="numero">1</div>
+        <h3>Busque</h3>
+        <p>Filtre por categoria e pelo bairro onde o servico sera feito, e compare avaliacoes.</p>
+      </article>
+      <article class="cartao passo">
+        <div class="numero">2</div>
+        <h3>Solicite</h3>
+        <p>O profissional aceita e voces trocam telefone e e-mail, sem custo para ninguem.</p>
+      </article>
+      <article class="cartao passo">
+        <div class="numero">3</div>
+        <h3>Confirme</h3>
+        <p>So depois da sua confirmacao o profissional paga a comissao a plataforma.</p>
+      </article>
+    </div>
+
+    <div class="destaque-regra">
+      <span class="marca-icone" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2"
+             stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5.5 5.5L20 7"/></svg>
+      </span>
+      <div class="texto">
+        <h3>Diferente dos aplicativos que cobram por contato</h3>
+        <p>Aqui o profissional so paga 10% de comissao quando voce confirma que o servico foi concluido.</p>
+      </div>
+      <a class="btn btn-secundario" href="criar-conta.html?perfil=prestador">Sou profissional</a>
+    </div>
+  </section>
+</main>
+
+<footer class="rodape">
+  <div class="container rodape-interno">
+    <span>Termos de uso</span>
+    <span>Politica de privacidade</span>
+    <span>Contato</span>
+    <span class="direita">Obrix &middot; 2026</span>
+  </div>
+</footer>
+
+<script src="js/demo.js"></script>
+<script src="js/api.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/pagina-inicio.js"></script>
+</body>
+</html>

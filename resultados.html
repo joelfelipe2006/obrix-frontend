@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Resultados da busca — Obrix</title>
+  <link rel="stylesheet" href="css/obrix.css">
+  <style>
+    .filtros { display: grid; gap: var(--e3); margin-bottom: var(--e5); }
+    @media (min-width: 760px) { .filtros { grid-template-columns: 1fr 1fr auto; align-items: end; } }
+    .filtros .campo { margin-bottom: 0; }
+    .cartao-prestador { display: grid; gap: var(--e3); }
+    @media (min-width: 680px) {
+      .cartao-prestador { grid-template-columns: auto 1fr auto; align-items: center; }
+    }
+    .cartao-prestador .avatar { width: 48px; height: 48px; font-size: 16px; }
+    .cartao-prestador h3 { margin-bottom: 4px; }
+    .cartao-prestador .desc { color: var(--texto-2); font-size: 14.5px; margin-top: 6px; }
+    .etiquetas { display: flex; flex-wrap: wrap; gap: 6px; margin-top: var(--e2); }
+    .etiqueta {
+      font-size: 12.5px; background: var(--fundo); border: 1px solid var(--linha);
+      border-radius: var(--raio-pill); padding: 3px 10px; color: var(--texto-2);
+    }
+    .divisor-sem-nota {
+      margin-top: var(--e6); padding-top: var(--e4);
+      border-top: 1px solid var(--linha); color: var(--texto-2); font-size: 14.5px;
+    }
+  </style>
+</head>
+<body>
+<header data-topo></header>
+<main class="container painel">
+  <h1 class="painel-titulo" id="titulo">Profissionais</h1>
+  <p class="painel-apoio" id="resumo">Carregando...</p>
+
+  <form class="filtros" id="form-filtros">
+    <div class="campo">
+      <label for="categoria">Categoria</label>
+      <select id="categoria" name="categoriaId"></select>
+    </div>
+    <div class="campo">
+      <label for="regiao">Bairro</label>
+      <select id="regiao" name="regiaoId"><option value="">Todos os bairros</option></select>
+    </div>
+    <button type="submit" class="btn btn-escuro">Filtrar</button>
+  </form>
+
+  <div id="lista"></div>
+</main>
+<footer class="rodape">
+  <div class="container rodape-interno">
+    <span>Termos de uso</span>
+    <span>Politica de privacidade</span>
+    <span class="direita">Obrix &middot; 2026</span>
+  </div>
+</footer>
+
+<script src="js/demo.js"></script>
+<script src="js/api.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/pagina-resultados.js"></script>
+</body>
+</html>

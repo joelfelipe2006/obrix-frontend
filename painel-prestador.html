@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Painel do profissional — Obrix</title>
+  <link rel="stylesheet" href="css/obrix.css">
+  <style>
+    .indicadores { display: grid; gap: var(--e3); margin-bottom: var(--e5); }
+    @media (min-width: 720px) { .indicadores { grid-template-columns: repeat(3, 1fr); } }
+    .indicador .rotulo {
+      font-size: 11.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--texto-3);
+    }
+    .indicador .numero { font-size: 26px; font-weight: 700; margin-top: 2px; }
+    .indicador .apoio { font-size: 13px; color: var(--texto-2); }
+
+    .cartao-servico { display: grid; gap: var(--e3); }
+    @media (min-width: 820px) {
+      .cartao-servico { grid-template-columns: 1fr auto auto; align-items: center; }
+    }
+    .cartao-servico .cabecalho { display: flex; align-items: center; gap: var(--e2); flex-wrap: wrap; }
+    .cartao-servico .cabecalho .meta { font-size: 13px; color: var(--texto-3); }
+    .cartao-servico h3 { margin-top: 6px; }
+    .cartao-servico .sub { font-size: 14px; color: var(--texto-2); margin-top: 3px; }
+    .acoes { display: grid; gap: var(--e2); }
+    @media (min-width: 820px) { .acoes { min-width: 190px; } }
+    .valor-bloco { text-align: left; }
+    @media (min-width: 820px) { .valor-bloco { text-align: right; } }
+    .valor-rotulo { font-size: 11.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--texto-3); }
+    .valor-numero { font-size: 20px; font-weight: 700; }
+    .nota { font-size: 13.5px; color: var(--texto-2); margin-top: var(--e2); }
+  </style>
+</head>
+<body>
+<header data-topo></header>
+<main class="container painel">
+  <h1 class="painel-titulo">Painel do profissional</h1>
+  <p class="painel-apoio">Receber solicitacoes nao tem custo. A comissao so nasce na confirmacao do cliente.</p>
+
+  <div class="indicadores" id="indicadores"></div>
+
+  <div class="abas" role="tablist" id="abas">
+    <button class="aba" role="tab" data-filtro="pendentes" aria-selected="true">Solicitacoes</button>
+    <button class="aba" role="tab" data-filtro="andamento" aria-selected="false">Em andamento</button>
+    <button class="aba" role="tab" data-filtro="concluidos" aria-selected="false">Concluidos</button>
+    <button class="aba" role="tab" data-filtro="extrato" aria-selected="false">Cobrancas</button>
+  </div>
+
+  <div id="lista"></div>
+</main>
+
+<footer class="rodape">
+  <div class="container rodape-interno">
+    <span>Termos de uso</span><span class="direita">Obrix &middot; 2026</span>
+  </div>
+</footer>
+
+<script src="js/demo.js"></script>
+<script src="js/api.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/pagina-painel-prestador.js"></script>
+</body>
+</html>

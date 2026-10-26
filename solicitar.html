@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nova solicitacao — Obrix</title>
+  <link rel="stylesheet" href="css/obrix.css">
+  <style>
+    .coluna { max-width: 640px; }
+    .resumo-prestador { display: flex; gap: var(--e3); align-items: center; }
+    .resumo-prestador .avatar { width: 44px; height: 44px; }
+  </style>
+</head>
+<body>
+<header data-topo></header>
+<main class="container painel">
+  <div class="coluna">
+    <!-- Torna visivel o limite de quatro telas da busca ao envio. -->
+    <ol class="etapas" aria-label="Etapas da contratacao">
+      <li class="etapa feita"><span class="bolha">1</span> Busca</li>
+      <span class="traco" aria-hidden="true"></span>
+      <li class="etapa feita"><span class="bolha">2</span> Resultados</li>
+      <span class="traco" aria-hidden="true"></span>
+      <li class="etapa feita"><span class="bolha">3</span> Perfil</li>
+      <span class="traco" aria-hidden="true"></span>
+      <li class="etapa" aria-current="step"><span class="bolha">4</span> Solicitacao</li>
+    </ol>
+
+    <h1 class="painel-titulo">Solicitar servico</h1>
+    <p class="painel-apoio">Enviar o pedido nao tem custo. O profissional pode aceitar ou recusar.</p>
+
+    <div class="cartao" id="resumo-prestador"></div>
+
+    <form class="cartao" id="form-solicitar" novalidate>
+      <div class="campo">
+        <label for="categoriaId">Categoria do servico</label>
+        <select id="categoriaId" name="categoriaId" required></select>
+      </div>
+
+      <div class="campo">
+        <label for="descricao">O que voce precisa</label>
+        <textarea id="descricao" name="descricao" required maxlength="1000"
+          placeholder="Descreva o servico com o maximo de detalhe que conseguir."></textarea>
+        <span class="ajuda">Quanto mais claro, mais facil para o profissional avaliar.</span>
+      </div>
+
+      <div class="linha-campos duas">
+        <div class="campo">
+          <label for="dataDesejada">Data desejada</label>
+          <input type="date" id="dataDesejada" name="dataDesejada" required>
+        </div>
+        <div class="campo">
+          <label for="regiaoId">Bairro do servico</label>
+          <select id="regiaoId" name="regiaoId" required></select>
+        </div>
+      </div>
+
+      <fieldset>
+        <legend>Endereco de execucao</legend>
+        <div class="linha-campos duas">
+          <div class="campo">
+            <label for="cep">CEP</label>
+            <input type="text" id="cep" name="cep" placeholder="00000-000">
+          </div>
+          <div class="campo">
+            <label for="numero">Numero</label>
+            <input type="text" id="numero" name="numero" required>
+          </div>
+        </div>
+        <div class="campo">
+          <label for="logradouro">Rua</label>
+          <input type="text" id="logradouro" name="logradouro" required>
+        </div>
+        <div class="linha-campos duas">
+          <div class="campo">
+            <label for="cidade">Cidade</label>
+            <input type="text" id="cidade" name="cidade" required readonly>
+          </div>
+          <div class="campo">
+            <label for="bairro">Bairro</label>
+            <input type="text" id="bairro" name="bairro" required readonly>
+          </div>
+        </div>
+      </fieldset>
+
+      <div class="aviso aviso-ok" style="margin-bottom:16px">
+        Custo para voce: zero. A plataforma so cobra o profissional, e somente
+        depois que voce confirmar que o servico foi concluido.
+      </div>
+
+      <button type="submit" class="btn btn-primario btn-bloco">Enviar solicitacao</button>
+    </form>
+  </div>
+</main>
+
+<footer class="rodape">
+  <div class="container rodape-interno">
+    <span>Termos de uso</span><span class="direita">Obrix &middot; 2026</span>
+  </div>
+</footer>
+
+<script src="js/demo.js"></script>
+<script src="js/api.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/pagina-solicitar.js"></script>
+</body>
+</html>
